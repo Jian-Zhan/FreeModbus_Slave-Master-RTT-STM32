@@ -29,7 +29,9 @@ struct pin_index
 
 static const struct pin_index pins[] =
 {
-    { 0, RCC_APB2Periph_GPIOA, GPIOA, GPIO_Pin_1},
+	  // STM32MB_SLAVE_RT_CONTROL_PIN
+    { 0, RCC_APB2Periph_GPIOC, GPIOC, GPIO_Pin_5},
+		// STM32MB_MASTER_RT_CONTROL_PIN
     { 1, RCC_APB2Periph_GPIOB, GPIOB, GPIO_Pin_1},
 };
 

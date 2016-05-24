@@ -75,7 +75,7 @@ void thread_entry_SysMonitor(void* parameter)
 //******************************************************************
 void thread_entry_ModbusSlavePoll(void* parameter)
 {
-	eMBInit(MB_RTU, 0x01, 1, 115200,  MB_PAR_EVEN);
+	eMBInit(STM32MB_PROTOCOL, STM32MB_SLAVE_ID, STM32MB_SLAVE_UART_PORT, STM32MB_BAUD_RATE, STM32MB_PAR);
 	eMBEnable();
 	while (1)
 	{
@@ -91,7 +91,7 @@ void thread_entry_ModbusSlavePoll(void* parameter)
 //******************************************************************
 void thread_entry_ModbusMasterPoll(void* parameter)
 {
-	eMBMasterInit(MB_RTU, 2, 115200,  MB_PAR_EVEN);
+	eMBMasterInit(STM32MB_PROTOCOL, STM32MB_MASTER_UART_PORT, STM32MB_BAUD_RATE, STM32MB_PAR);
 	eMBMasterEnable();
 	while (1)
 	{

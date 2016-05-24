@@ -46,24 +46,34 @@
 #define STM32_SRAM_SIZE         20
 #define STM32_SRAM_END          (0x20000000 + STM32_SRAM_SIZE * 1024)
 
+#define STM32MB_SLAVE_ID           0x01
+
+#define STM32MB_PROTOCOL         MB_RTU
+#define STM32MB_BAUD_RATE          9600
+#define STM32MB_PAR         MB_PAR_NONE
+
+#define STM32MB_MASTER_UART_PORT      1
+#define STM32MB_SLAVE_UART_PORT       3
+
 /* RT_USING_UART */
 #define RT_USING_UART3
-#define RT_USING_UART2
+// #define RT_USING_UART2
 #define RT_USING_UART1
+// #define RT_USING_REMAP_UART1
 #define RT_UART_RX_BUFFER_SIZE	64
 
 enum {
 	/* modbus slave 485 receive and transmit control pin index */
-	MODBUS_SLAVE_RT_CONTROL_PIN_INDEX = 0,
+	STM32MB_SLAVE_RT_CONTROL_PIN_INDEX = 0,
 	/* modbus master 485 receive and transmit control pin index */
-	MODBUS_MASTER_RT_CONTROL_PIN_INDEX = 1,
+	STM32MB_MASTER_RT_CONTROL_PIN_INDEX = 1,
 };
 
-#define LED_LED1_ON                GPIO_SetBits  (GPIOA,GPIO_Pin_11)  	   //LED1 
-#define LED_LED1_OFF               GPIO_ResetBits(GPIOA,GPIO_Pin_11) 	   //LED1
+#define LED_LED1_ON                GPIO_SetBits  (GPIOB,GPIO_Pin_14)  	   //LED1 
+#define LED_LED1_OFF               GPIO_ResetBits(GPIOB,GPIO_Pin_14) 	   //LED1
 
-#define LED_LED2_ON                GPIO_SetBits  (GPIOA,GPIO_Pin_12)  	   //LED1 
-#define LED_LED2_OFF               GPIO_ResetBits(GPIOA,GPIO_Pin_12) 	   //LED2
+#define LED_LED2_ON                GPIO_SetBits  (GPIOB,GPIO_Pin_12)  	   //LED1 
+#define LED_LED2_OFF               GPIO_ResetBits(GPIOB,GPIO_Pin_12) 	   //LED2
 
 void rt_hw_board_init(void);
 
